@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.app.dao.NewsDao">
+
+    <resultMap type="io.renren.modules.app.entity.NewsEntity" id="newsMap">
+        <result property="newsId" column="news_id"/>
+        <result property="newsTitle" column="news_title"/>
+        <result property="authorName" column="author_name"/>
+        <result property="headerUrl" column="header_url"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="releaseDate" column="release_date"/>
+        <result property="type" column="type"/>
+        <collection property="thumbEntities" column="news_id" select="getThumblist">
+        </collection>
+    </resultMap>
+    <select id="queryPageApp" resultMap="newsMap">
+        select *
+        from app_news n
+        <where>
+            <if test="news.authorName != null">
+                n.author_name LIKE #{news.authorName,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <select id="getThumblist" resultType="io.renren.modules.app.entity.NewsThumbEntity">
+        select * from app_news_thumb where news_id = #{id}
+    </select>
+
+</mapper>
