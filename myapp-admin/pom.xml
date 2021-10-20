@@ -2,12 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>io.renren</groupId>
     <artifactId>myapp-admin</artifactId>
     <version>3.0.0</version>
-
-    <packaging>jar</packaging>
-    <description>myapp-admin</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -252,40 +250,19 @@
     </profiles>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
 
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                </configuration>
             </plugin>
-            <!-- 跳过单元测试 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-
+            <!--   docker打包     -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.14</version>
-                <!--<executions>-->
-                <!--<execution>-->
-                <!--<phase>package</phase>-->
-                <!--<goals>-->
-                <!--<goal>build</goal>-->
-                <!--</goals>-->
-                <!--</execution>-->
-                <!--</executions>-->
+                <version>1.0.0</version>
                 <configuration>
-                    <imageName>renren/fast</imageName>
-                    <dockerDirectory>${project.basedir}</dockerDirectory>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -296,10 +273,27 @@
                 </configuration>
                 <!-- 运行命令 mvn clean package docker:build 打包并生成docker镜像 -->
             </plugin>
+            <!--   复制jar包  -->
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <copy todir="src/main/docker" file="target/${project.artifactId}-${project.version}.${project.packaging}"></copy>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
-
+    <!--    aliyun  -->
     <repositories>
         <repository>
             <id>public</id>
