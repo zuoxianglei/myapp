@@ -14,7 +14,7 @@ module.exports = {
     // 代理列表, 是否开启代理通过[./dev.env.js]配置
     proxyTable: devEnv.OPEN_PROXY === false ? {} : {
       '/proxyApi': {
-        //target: '代理api接口请求地址'
+        //  target: '代理api接口请求地址'
         target: 'http://demo.renren.io/renren-fast/',
         changeOrigin: true,
         pathRewrite: {
@@ -23,7 +23,7 @@ module.exports = {
       }
     },
 
-    // Various Dev Server settings
+    // Various Dev Server settings 可以被 process.env.HOST 覆盖
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
