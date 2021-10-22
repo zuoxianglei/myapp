@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * @author Administrator
  */
-@TableName("app_news_thumb")
+@TableName("news_thumb")
 public class NewsThumbEntity implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -33,9 +33,9 @@ public class NewsThumbEntity implements Serializable {
 
   public void setThumbId(Integer thumbId)
   {
-    this.thumbId = thumbId; } 
-  public void setThumbUrl(String thumbUrl) { this.thumbUrl = thumbUrl; } 
-  public void setNewsId(Integer newsId) { this.newsId = newsId; } 
+    this.thumbId = thumbId; }
+  public void setThumbUrl(String thumbUrl) { this.thumbUrl = thumbUrl; }
+  public void setNewsId(Integer newsId) { this.newsId = newsId; }
   @Override
   public boolean equals(Object o) { if (o == this) {
     return true;

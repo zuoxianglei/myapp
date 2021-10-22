@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
-@TableName("app_video_category")
+@TableName("video_category")
 public class VideoCategoryEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -16,7 +16,7 @@
     </resultMap>
     <select id="queryPageApp" resultMap="newsMap">
         select *
-        from app_news n
+        from news n
         <where>
             <if test="news.authorName != null">
                 n.author_name LIKE #{news.authorName,jdbcType=VARCHAR}
@@ -25,7 +25,7 @@
     </select>
 
     <select id="getThumblist" resultType="io.renren.modules.app.entity.NewsThumbEntity">
-        select * from app_news_thumb where news_id = #{id}
+        select * from news_thumb where news_id = #{id}
     </select>
 
 </mapper>

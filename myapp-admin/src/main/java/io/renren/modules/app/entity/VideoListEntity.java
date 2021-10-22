@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * @author Administrator
  */
-@TableName("app_video_list")
+@TableName("video_list")
 public class VideoListEntity implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -93,19 +93,19 @@ public class VideoListEntity implements Serializable {
 
   public void setVid(Integer vid)
   {
-    this.vid = vid; } 
-  public void setVtitle(String vtitle) { this.vtitle = vtitle; } 
-  public void setAuthor(String author) { this.author = author; } 
-  public void setCoverurl(String coverurl) { this.coverurl = coverurl; } 
-  public void setHeadurl(String headurl) { this.headurl = headurl; } 
-  public void setCommentNum(Integer commentNum) { this.commentNum = commentNum; } 
-  public void setLikeNum(Integer likeNum) { this.likeNum = likeNum; } 
-  public void setCollectNum(Integer collectNum) { this.collectNum = collectNum; } 
-  public void setPlayurl(String playurl) { this.playurl = playurl; } 
-  public void setCreateTime(Date createTime) { this.createTime = createTime; } 
-  public void setUpdateTime(Date updateTime) { this.updateTime = updateTime; } 
-  public void setCategoryId(Integer categoryId) { this.categoryId = categoryId; } 
-  public void setCategoryName(String categoryName) { this.categoryName = categoryName; } 
+    this.vid = vid; }
+  public void setVtitle(String vtitle) { this.vtitle = vtitle; }
+  public void setAuthor(String author) { this.author = author; }
+  public void setCoverurl(String coverurl) { this.coverurl = coverurl; }
+  public void setHeadurl(String headurl) { this.headurl = headurl; }
+  public void setCommentNum(Integer commentNum) { this.commentNum = commentNum; }
+  public void setLikeNum(Integer likeNum) { this.likeNum = likeNum; }
+  public void setCollectNum(Integer collectNum) { this.collectNum = collectNum; }
+  public void setPlayurl(String playurl) { this.playurl = playurl; }
+  public void setCreateTime(Date createTime) { this.createTime = createTime; }
+  public void setUpdateTime(Date updateTime) { this.updateTime = updateTime; }
+  public void setCategoryId(Integer categoryId) { this.categoryId = categoryId; }
+  public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
   public void setVideoSocialEntity(VideoSocialEntity videoSocialEntity) { this.videoSocialEntity = videoSocialEntity; }
   @Override
   public boolean equals(Object o) { if (o == this) {

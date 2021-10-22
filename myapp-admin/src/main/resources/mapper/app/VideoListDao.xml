@@ -21,7 +21,7 @@
 
     <select id="queryPage" resultMap="videoListMap">
         SELECT l.*,c.category_name
-        FROM app_video_list l INNER JOIN app_video_category c
+        FROM video_list l INNER JOIN video_category c
         ON l.category_id = c.category_id
         <where>
             <if test="video.author != null">
@@ -33,7 +33,7 @@
 
     <select id="queryPageByCategoryId" resultMap="videoListMap">
         SELECT l.*,c.category_name
-        FROM app_video_list l INNER JOIN app_video_category c
+        FROM video_list l INNER JOIN video_category c
         ON l.category_id = c.category_id
         <where>
             <if test="categoryId != null">
