@@ -256,7 +256,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!--   docker打包     -->
+            <!--docker打包-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -282,7 +282,7 @@
                 </configuration>
                 <!-- 运行命令 mvn clean package docker:build 打包并生成docker镜像 -->
             </plugin>
-            <!--   复制jar包  -->
+            <!--复制jar包操作-->
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
