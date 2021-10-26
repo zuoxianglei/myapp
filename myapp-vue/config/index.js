@@ -1,5 +1,5 @@
 'use strict'
-// Template version: 1.2.5
+// 模板 version: 1.2.5
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
@@ -8,7 +8,7 @@ const devEnv = require('./dev.env')
 module.exports = {
   dev: {
 
-    // Paths
+    // 路径
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     // 代理列表, 是否开启代理通过[./dev.env.js]配置
