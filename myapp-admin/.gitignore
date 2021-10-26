@@ -31,4 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/docker/*.jar
+/src/main/resources/*.jar

@@ -249,29 +249,35 @@
 
     </profiles>
 
+    <!--spring boot打包的话需要指定一个唯一的入门-->
     <build>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!--docker打包-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>io.renren.RenrenApplication</mainClass>
+                    <layout>ZIP</layout>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+            <!--docker镜像build插件-->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>1.2.0</version>
                 <configuration>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
+                    <imageName>myapp/${project.artifactId}</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/resources</dockerDirectory>
+                    <rm>true</rm>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -280,9 +286,7 @@
                         </resource>
                     </resources>
                 </configuration>
-                <!-- 运行命令 mvn clean package docker:build 打包并生成docker镜像 -->
             </plugin>
-            <!--复制jar包操作-->
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <executions>
@@ -290,7 +294,7 @@
                         <phase>package</phase>
                         <configuration>
                             <tasks>
-                                <copy todir="src/main/docker" file="target/${project.artifactId}-${project.version}.${project.packaging}"></copy>
+                                <copy todir="${project.basedir}/src/main/resources" file="target/${project.artifactId}-${project.version}.${project.packaging}"></copy>
                             </tasks>
                         </configuration>
                         <goals>
