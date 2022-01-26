@@ -1,20 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : 192.168.206.128mongodb
- Source Server Type    : MongoDB
- Source Server Version : 40406
- Source Host           : 192.168.206.128:27017
- Source Schema         : myapp
-
- Target Server Type    : MongoDB
- Target Server Version : 40406
- File Encoding         : 65001
-
- Date: 02/08/2021 21:00:22
-*/
-
-
 // ----------------------------
 // Collection structure for collect
 // ----------------------------

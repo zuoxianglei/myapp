@@ -1,4 +1,4 @@
-http://192.168.31.32:8080/renren-fast
+http://127.0.0.1:8080/renren-fast
 
 登录接口
     请求地址: /app/login

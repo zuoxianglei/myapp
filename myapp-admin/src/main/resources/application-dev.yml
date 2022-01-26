@@ -3,9 +3,9 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://192.168.31.20:3306/myapp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: myapp
-            password: xCTH85bBHMx53Csz
+            url: jdbc:mysql://127.0.0.1:3306/myapp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: root
+            password: 123456
             initial-size: 10
             max-active: 100
             min-idle: 10
@@ -35,12 +35,16 @@ spring:
 #记得配置mongodb
     data:
         mongodb:
-            host: 192.168.31.20
+            host: 127.0.0.1
             port: 27017
             # 数据库
             database: myapp
             # 认证数据库
             authentication-database: admin
+            # 用户名
+            username: admin
+            # 密码
+            password: "123456"
 
 
 ##多数据源的配置
