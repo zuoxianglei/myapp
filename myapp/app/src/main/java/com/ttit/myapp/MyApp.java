@@ -6,10 +6,6 @@ import android.content.SharedPreferences;
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinAppCompatViewInflater;
 
-/**
- * @author: wei
- * @date: 2020-10-05
- **/
 public class MyApp extends Application {
     @Override
     public void onCreate() {
